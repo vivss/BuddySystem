@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BuddySystem</string>
+    <string name="location_permission_title">Permission to use Location</string>
+    <string name="location_permission_text">Buddy System will request your location every 5 minutes</string>
+    <string name="ok">Ok</string>
+    <string name="permission_denied">Permission Denied</string>
+
+
 </resources>
