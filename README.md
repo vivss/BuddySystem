@@ -1,4 +1,4 @@
-#WiCHacks 2018 - BuddySystem
+# WiCHacks 2018 - BuddySystem
 
 ## Inspiration
 We always have that one friend who wanders off whether it's at a party, amusement park, or concert. We want to make sure you can keep your buddy next to you but without the invasiveness of location trackers.
