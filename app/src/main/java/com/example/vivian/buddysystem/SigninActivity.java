@@ -41,7 +41,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class SigninActivity extends AppCompatActivity{
 
-    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private EditText mUsernameView;
@@ -89,14 +88,53 @@ public class SigninActivity extends AppCompatActivity{
     }
 
     private void attemptRegister() {
+        mUsernameView.setError(null);
+        // Store values at the time of the login attempt.
+        String username = mUsernameView.getText().toString();
+        String password = mPasswordView.getText().toString();
 
+        boolean cancel = false;
+        View focusView = null;
 
+        // Check for a valid password, if the user entered one.
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
+        // Check for a valid Username address.
+        if (TextUtils.isEmpty(username)) {
+            mUsernameView.setError(getString(R.string.error_field_required));
+            focusView = mUsernameView;
+            cancel = true;
+        } else if (!isUsernameValid(username)) {
+            mUsernameView.setError(getString(R.string.error_invalid_username));
+            focusView = mUsernameView;
+            cancel = true;
+        } else {
+            for (User u : mList.userList) {
+                if (u.getUsername().equals(username)) {
+                    mUsernameView.setError(getString(R.string.error_invalid_username));
+                    focusView.requestFocus();
+                }
+            }
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
+        } else {
+            User user = new User(username, password);
+            mList.addUser(user);
+        }
     }
 
 
 
     /**
-     * Attempts to sign in or register the account specified by the login form.
+     * Attempts to sign in the account specified by the login form.
      * If there are form errors (invalid Username, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
@@ -139,8 +177,14 @@ public class SigninActivity extends AppCompatActivity{
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(username, password);
-            mAuthTask.execute((Void) null);
+            User user = mList.getUserByUsername(username);
+            if(user.getPassword().equals(password)){
+                //log in
+            }
+            else{
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.requestFocus();
+            }
         }
     }
     
@@ -156,37 +200,6 @@ public class SigninActivity extends AppCompatActivity{
     }
     
 
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mUsername;
-        private final String mPassword;
-
-        UserLoginTask(String Username, String password) {
-            mUsername = Username;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            User user = mList.getUserByUsername(mUsername);
-
-            return user.getPassword().equals(mPassword);
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-        }
-    }
 
     /**
      * Shows the progress UI and hides the login form.
