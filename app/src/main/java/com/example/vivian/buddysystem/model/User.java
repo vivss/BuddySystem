@@ -22,6 +22,13 @@ public class User {
     public User(UUID id) {
         this.id = id;
     }
+    public User(String username, String password) {
+        this.id = UUID.randomUUID();
+        this.username = username;
+        this.password = password;
+        phone = "123123123";
+        name = "Sample Person";
+    }
 
     public String getUsername() {
         return username;

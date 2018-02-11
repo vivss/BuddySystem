@@ -43,6 +43,7 @@ public class UserList{
 
         ContentValues values = getUserValues(user);
         mUserDatabase.insert(UserDbSchema.DATABASE_NAME, null, values);
+        userList.add(user);
     }
 
     public User getUserById(String id){
