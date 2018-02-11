@@ -17,6 +17,8 @@ public class UserDbSchema {
             public static final String NAME = "name";
             public static final String PHONE = "phone";
             public static final String PASSWORD = "password";
+            public static final String LATITUDE = "latitude";
+            public static final String LONGITUDE = "longitude";
 
         }
     }

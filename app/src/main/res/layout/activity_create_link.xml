@@ -11,11 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="1"
-            android:src="@mipmap/buddy_connected_text"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0px"
@@ -66,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <Spinner
+                        android:id="@+id/spinner_duration"
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
                         android:layout_weight="2">
@@ -94,6 +90,7 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
                     <Spinner
+                        android:id="@+id/spinner_distance"
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
                         android:layout_weight="2">
@@ -111,11 +108,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="Add Buddy"
+                android:text="@string/button_add"
                 android:background="@drawable/gradient"
                 />
 
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:src="@mipmap/buddy_connected_text" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

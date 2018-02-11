@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class UserDbHelper extends SQLiteOpenHelper{
-    private static int VERSION = 1;
+    private static int VERSION = 2;
 
     public UserDbHelper(Context contextor) {
         super(contextor, UserDbSchema.DATABASE_NAME, null, VERSION);
@@ -24,8 +24,9 @@ public class UserDbHelper extends SQLiteOpenHelper{
                 + UserDbSchema.UserTable.Cols.USERNAME + ", "
                 + UserDbSchema.UserTable.Cols.NAME + ", "
                 + UserDbSchema.UserTable.Cols.PHONE + ", "
-                + UserDbSchema.UserTable.Cols.PASSWORD + ")"
-
+                + UserDbSchema.UserTable.Cols.PASSWORD + ", "
+                + UserDbSchema.UserTable.Cols.LATITUDE + ", "
+                + UserDbSchema.UserTable.Cols.LONGITUDE + ")"
         );
     }
 
@@ -33,4 +34,6 @@ public class UserDbHelper extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+
 }

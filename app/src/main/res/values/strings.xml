@@ -5,6 +5,8 @@
     <string name="ok">Ok</string>
     <string name="permission_denied">Permission Denied</string>
     <string name="title_activity_signin">Sign in</string>
+    <string name="friends">FRIENDS</string>
+    <string name="button_add">Link Buddy</string>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>
@@ -17,7 +19,26 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="friends">FRIENDS</string>
+    <string name="buddy_b">Buddy B</string>
+    <string name="distance">Distance</string>
+
+    <!--Array for Options-->
+    <string-array name="duration_array">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>12</item>
+        <item>24</item>
+        <item>48</item>
+    </string-array>
+
+    <string-array name="distance_array">
+        <item>100</item>
+        <item>50</item>
+        <item>30</item>
+        <item>10</item>
+        <item>5</item>
+    </string-array>
 
 
 </resources>

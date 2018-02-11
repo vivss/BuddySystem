@@ -16,6 +16,7 @@ public class LinkDbSchema {
             public static final String BUDDYB = "buddyB";
             public static final String STARTTIME = "startTime";
             public static final String ENDTIME = "endTime";
+            public static final String DISTANCE = "distance";
 
         }
     }

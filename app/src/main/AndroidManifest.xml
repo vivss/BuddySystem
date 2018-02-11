@@ -27,9 +27,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-
-        <activity android:name=".Locator"></activity>
-
+        <activity android:name=".NotActiveDash" />
+        <activity android:name=".CreateLink" />
+        <activity android:name=".Locator" />
+        <activity android:name=".recycler.RecyclerActivity"></activity>
     </application>
 
 </manifest>

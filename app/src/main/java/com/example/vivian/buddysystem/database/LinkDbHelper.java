@@ -23,7 +23,8 @@ public class LinkDbHelper extends SQLiteOpenHelper {
                 + LinkDbSchema.LinkTable.Cols.BUDDYA + ", "
                 + LinkDbSchema.LinkTable.Cols.BUDDYB + ", "
                 + LinkDbSchema.LinkTable.Cols.STARTTIME + ", "
-                + LinkDbSchema.LinkTable.Cols.ENDTIME + ")"
+                + LinkDbSchema.LinkTable.Cols.ENDTIME + ", "
+                + LinkDbSchema.LinkTable.Cols.DISTANCE + ")"
 
         );
     }

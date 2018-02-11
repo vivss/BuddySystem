@@ -1,5 +1,6 @@
 package com.example.vivian.buddysystem.model;
 
+import android.accounts.Account;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,13 +22,20 @@ public class UserList{
     public ArrayList<User> userList;
 
     private static final String TAG = "USERLIST";
+
     private final SQLiteDatabase mUserDatabase;
+
+    private User mCurrentUser;
 
 
     public UserList(Context context) {
         this.mUserDatabase = new UserDbHelper(context).getWritableDatabase();
         userList = getAllUsers();
 
+    }
+
+    public SQLiteDatabase getmUserDatabase() {
+        return mUserDatabase;
     }
 
     public static synchronized UserList getsUsers(Context context){
@@ -38,12 +46,21 @@ public class UserList{
         return sUsers;
     }
 
+    public User getCurrentUser(){
+        return mCurrentUser;
+    }
+
+    public void setCurrentUser(User u){
+        mCurrentUser = u;
+    }
+
     public void addUser(User user){
         Log.d(TAG,"ADD " + user);
 
         ContentValues values = getUserValues(user);
         mUserDatabase.insert(UserDbSchema.UserTable.TABLENAME, null, values);
         userList.add(user);
+        setCurrentUser(user);
     }
 
     public User getUserById(String id){
@@ -116,6 +133,8 @@ public class UserList{
         values.put(UserDbSchema.UserTable.Cols.NAME, user.getName());
         values.put(UserDbSchema.UserTable.Cols.PHONE, user.getPhone());
         values.put(UserDbSchema.UserTable.Cols.PASSWORD, user.getPassword());
+        values.put(UserDbSchema.UserTable.Cols.LATITUDE, user.getLocation().getLatitude());
+        values.put(UserDbSchema.UserTable.Cols.LONGITUDE, user.getLocation().getLongitude());
 
         Log.d(TAG, "Values");
         return values;

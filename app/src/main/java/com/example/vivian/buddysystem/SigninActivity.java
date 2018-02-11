@@ -3,6 +3,7 @@ package com.example.vivian.buddysystem;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.vivian.buddysystem.database.UserDbSchema;
 import com.example.vivian.buddysystem.model.User;
 import com.example.vivian.buddysystem.model.UserList;
 
@@ -57,6 +59,7 @@ public class SigninActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         // Set up the login form.
+
         mUsernameView = (EditText) findViewById(R.id.username);
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -92,6 +95,7 @@ public class SigninActivity extends AppCompatActivity{
         mProgressView = findViewById(R.id.login_progress);
 
         mList = UserList.getsUsers(getApplicationContext());
+
     }
 
     private void attemptRegister() {
@@ -138,6 +142,7 @@ public class SigninActivity extends AppCompatActivity{
             User user = new User(username, password);
             mList.addUser(user);
             Log.d("SIGNIN", "YOU created a user!");
+            startActivity(new Intent(SigninActivity.this, NotActiveDash.class));
         }
     }
 
@@ -200,6 +205,8 @@ public class SigninActivity extends AppCompatActivity{
                 if (user.getPassword().equals(password)) {
                     //log in
                     Log.d("SIGNIN", "You logged in!");
+                    mList.setCurrentUser(user);
+                    startActivity(new Intent(SigninActivity.this, NotActiveDash.class));
                 } else {
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
                     mPasswordView.requestFocus();
