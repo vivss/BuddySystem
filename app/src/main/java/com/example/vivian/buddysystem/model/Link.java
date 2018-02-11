@@ -2,6 +2,7 @@ package com.example.vivian.buddysystem.model;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -81,6 +82,7 @@ public class Link {
     }
 
     public int getSpace(){
-        return 20;
+        Random r = new Random();
+        return r.nextInt(100-0) + 0;
     }
 }
