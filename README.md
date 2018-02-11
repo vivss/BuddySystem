@@ -14,8 +14,11 @@ We had difficulties testing the location services on our simulator and neither o
 We're glad we have a working prototype! :)
 
 ## What we learned
+We learned how to quickly create a protype!
 
 ## What's next for Buddy System
 We created Buddy System for friends going out to events. But we can see it being used for parents when they go out with their children, or tour groups.
 
 We're hoping to improve the user experience by reorganizing the flow and layouts. 
+
+![Screenshot!](https://github.com/vivss/BuddySystem/blob/master/Output/Screenshot_1518363420.png)
