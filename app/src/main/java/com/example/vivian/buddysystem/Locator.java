@@ -38,16 +38,12 @@ public class Locator extends AppCompatActivity {
     /********** ACTIVITY LIFECYCLE **************/
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        initiateLocationLibrary();
-        checkLocPermission();
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locator);
+        initiateLocationLibrary();
+        checkLocPermission();
+
         testButton = (Button) findViewById(R.id.button_testLocator);
         testButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -132,6 +128,10 @@ public class Locator extends AppCompatActivity {
         }
         // GPS enabled and have permission - start requesting location updates
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, pingFrequency, minDistance, locationListener);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+        Log.d("LOCATION", "printLocation: "+ location);
+
     }
 
     protected void initiateLocationLibrary(){
@@ -149,4 +149,8 @@ public class Locator extends AppCompatActivity {
             public void onProviderDisabled(String provider) {}
         };
     }
+
+    protected void printLocation(){
+    }
 }
+
