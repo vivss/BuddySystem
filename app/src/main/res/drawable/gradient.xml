@@ -1,11 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <!--  Gradient Bg for listrow -->
-    <gradient
-        android:startColor= "@color/colorPrimary"
-        android:endColor="@color/colorPrimaryDark"
-        android:angle="270" />
-    <corners android:radius="10dp"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--reference: https://stackoverflow.com/questions/20870853/android-shape-border-with-gradient-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</shape>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="270"
+                android:startColor= "@color/colorPrimary"
+                android:centerColor="@color/colorAccent"
+                android:endColor="@color/colorPrimaryDark"
+                android:gradientRadius="360"
+                android:type="sweep" />
+
+            <stroke
+                android:width="2dp"
+                android:color="@color/colorPrimary"/>
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#fff" />
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+
+</layer-list>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:shape="rectangle">-->
+    <!--&lt;!&ndash;  Gradient Bg for listrow &ndash;&gt;-->
+    <!--<gradient-->
+        <!--android:startColor= "@color/colorPrimary"-->
+        <!--android:endColor="@color/colorPrimaryDark"-->
+        <!--android:angle="270" />-->
+    <!--<corners android:radius="10dp"/>-->
+
+<!--</shape>-->
