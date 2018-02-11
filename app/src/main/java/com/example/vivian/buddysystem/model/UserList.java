@@ -59,6 +59,20 @@ public class UserList{
         return user;
     }
 
+    public User getUserByUsername(String username){
+        UserCursorWrapper wrapper = queryUsers(UserDbSchema.UserTable.Cols.USERNAME + "=?", new String[]{username});
+        User user;
+        try {
+            wrapper.moveToFirst();
+            user = wrapper.getUser();
+            Log.e(TAG, "GET " + user);
+        }finally {
+            wrapper.close();
+        }
+
+        return user;
+    }
+
     public ArrayList<User> getAllUsers() {
         UserCursorWrapper wrapper = queryUsers(null, null);
         ArrayList<User> list = new ArrayList<User>();
