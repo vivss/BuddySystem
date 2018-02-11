@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.vivian.buddysystem.database.LinkCursorWrapper;
 import com.example.vivian.buddysystem.database.LinkDbHelper;
@@ -31,13 +32,15 @@ public class LinkList {
 
     public ArrayList<Link> getLinks(User current){ //Get links of user
         LinkCursorWrapper wrapper = queryLinks(LinkDbSchema.LinkTable.Cols.BUDDYA + "=?", new String[]{current.getUsername()});
+        Log.d("LinkList", " did the query");
         ArrayList<Link> llll = new ArrayList<Link>();
         try {
+            Log.d("LinkList", " try");
             wrapper.moveToFirst();
             while (!wrapper.isAfterLast()){
                 Link link = wrapper.getLink();
                 llll.add(link);
-                wrapper.moveToLast();
+                wrapper.moveToNext();
             }
         }finally {
             wrapper.close();
@@ -54,7 +57,7 @@ public class LinkList {
                 args,               //where arguments
                 null,               //group by
                 null,               //having
-                null   //order by
+                LinkDbSchema.LinkTable.Cols.DISTANCE + " DESC"   //order by
         );
 
         return new LinkCursorWrapper(cursor);

@@ -142,6 +142,7 @@ public class SigninActivity extends AppCompatActivity{
             User user = new User(username, password);
             mList.addUser(user);
             Log.d("SIGNIN", "YOU created a user!");
+            mList.setCurrentUser(user);
             startActivity(new Intent(SigninActivity.this, NotActiveDash.class));
         }
     }

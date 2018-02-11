@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.example.vivian.buddysystem.R;
 import com.example.vivian.buddysystem.model.Link;
 import com.example.vivian.buddysystem.model.LinkList;
-import com.example.vivian.buddysystem.recycler.LinkFragment.OnListFragmentInteractionListener;
 
 
 import java.util.ArrayList;

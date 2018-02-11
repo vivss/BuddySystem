@@ -25,6 +25,6 @@ public class LinkHolder extends RecyclerView.ViewHolder{
 
     public void bindLink(Link link){
         mBuddyB.setText(link.getBuddyB());
-        mDistance.setText(link.getSpace());
+        mDistance.setText(Integer.toString(link.getSpace()));
     }
 }

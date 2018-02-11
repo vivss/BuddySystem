@@ -25,7 +25,7 @@ public class UserList{
 
     private final SQLiteDatabase mUserDatabase;
 
-    private User mCurrentUser;
+    private static User mCurrentUser;
 
 
     public UserList(Context context) {
