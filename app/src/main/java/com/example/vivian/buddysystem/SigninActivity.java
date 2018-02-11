@@ -28,6 +28,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.vivian.buddysystem.model.User;
+import com.example.vivian.buddysystem.model.UserList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +47,9 @@ public class SigninActivity extends AppCompatActivity{
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    //Users
+    private UserList mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,8 @@ public class SigninActivity extends AppCompatActivity{
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        mList = UserList.getsUsers(getApplicationContext());
     }
 
 
@@ -145,10 +153,9 @@ public class SigninActivity extends AppCompatActivity{
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
+            User user = mList.getUserByUsername(mUsername);
 
-            // TODO: register the new account here.
-            return true;
+            return user.getPassword().equals(mPassword);
         }
 
         @Override
