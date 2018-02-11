@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vivian.buddysystem.model.CreateLink">
+    tools:context="com.example.vivian.buddysystem.CreateLink">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,8 +38,7 @@
                     android:id="@+id/spinner_friends"
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:prompt="Find your buds">
+                    android:layout_weight="2">
                 </Spinner>
                 <TextView
                     android:layout_width="0px"

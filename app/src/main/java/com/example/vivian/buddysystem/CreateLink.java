@@ -1,4 +1,4 @@
-package com.example.vivian.buddysystem.model;
+package com.example.vivian.buddysystem;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
