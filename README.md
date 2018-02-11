@@ -25,4 +25,4 @@ We're hoping to improve the user experience by reorganizing the flow and layouts
 
 https://devpost.com/software/buddy-system-bkxdrf
 
-![Screenshot!](https://github.com/vivss/BuddySystem/blob/master/Output/Screenshot_1518363420.png | width=100)
+![Screenshot!](https://github.com/vivss/BuddySystem/blob/master/Output/Screenshot_1518363420.png =200x)
