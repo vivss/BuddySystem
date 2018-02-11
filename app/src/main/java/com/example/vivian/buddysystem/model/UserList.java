@@ -42,13 +42,13 @@ public class UserList{
         Log.d(TAG,"ADD " + user);
 
         ContentValues values = getUserValues(user);
-        mUserDatabase.insert(UserDbSchema.DATABASE_NAME, null, values);
+        mUserDatabase.insert(UserDbSchema.UserTable.TABLENAME, null, values);
         userList.add(user);
     }
 
     public User getUserById(String id){
         UserCursorWrapper wrapper = queryUsers(UserDbSchema.UserTable.Cols.ID + "=?", new String[]{id});
-        User user;
+        User user = null;
         try {
             wrapper.moveToFirst();
             user = wrapper.getUser();
@@ -62,7 +62,7 @@ public class UserList{
 
     public User getUserByUsername(String username){
         UserCursorWrapper wrapper = queryUsers(UserDbSchema.UserTable.Cols.USERNAME + "=?", new String[]{username});
-        User user;
+        User user = null;
         try {
             wrapper.moveToFirst();
             user = wrapper.getUser();

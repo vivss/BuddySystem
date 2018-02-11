@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -79,6 +80,12 @@ public class SigninActivity extends AppCompatActivity{
         });
 
         Button mRes = (Button) findViewById(R.id.register_button);
+        mRes.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptRegister();
+            }
+        });
 
 
         mLoginFormView = findViewById(R.id.login_form);
@@ -116,7 +123,8 @@ public class SigninActivity extends AppCompatActivity{
             for (User u : mList.userList) {
                 if (u.getUsername().equals(username)) {
                     mUsernameView.setError(getString(R.string.error_invalid_username));
-                    focusView.requestFocus();
+                    focusView = mUsernameView;
+                    cancel = true;
                 }
             }
         }
@@ -125,9 +133,11 @@ public class SigninActivity extends AppCompatActivity{
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
+            Log.d("SIGNIN", "You did not make a user!");
         } else {
             User user = new User(username, password);
             mList.addUser(user);
+            Log.d("SIGNIN", "YOU created a user!");
         }
     }
 
@@ -140,6 +150,7 @@ public class SigninActivity extends AppCompatActivity{
      */
     private void attemptLogin() {
 
+        Log.d("SIGNIN", "Attempt Login");
         // Reset errors.
         mUsernameView.setError(null);
         mPasswordView.setError(null);
@@ -177,13 +188,25 @@ public class SigninActivity extends AppCompatActivity{
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            User user = mList.getUserByUsername(username);
-            if(user.getPassword().equals(password)){
-                //log in
+            User user = null;
+            for (User u : mList.userList) {
+                if (u.getUsername().equals(username)) {
+                    user = u;
+                }
             }
-            else{
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+            showProgress(false);
+            if (user != null) {
+                Log.d("SIGNIN", "Try to Sign In to User");
+                if (user.getPassword().equals(password)) {
+                    //log in
+                    Log.d("SIGNIN", "You logged in!");
+                } else {
+                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mPasswordView.requestFocus();
+                }
+            } else {
+                mUsernameView.setError(getString(R.string.error_username));
+                focusView = mUsernameView;
             }
         }
     }
@@ -229,7 +252,7 @@ public class SigninActivity extends AppCompatActivity{
                     mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
                 }
             });
-        } else {
+        }else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
