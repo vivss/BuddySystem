@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.example.vivian.buddysystem.CreateLink;
 import com.example.vivian.buddysystem.R;
 import com.example.vivian.buddysystem.model.Link;
 import com.example.vivian.buddysystem.model.LinkList;
@@ -16,7 +19,29 @@ public class RecyclerActivity extends AppCompatActivity {
 
     public static String TAG = "REACT";
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btn_add_person:
+                Intent intent = new Intent(RecyclerActivity.this, CreateLink.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
+    }
+
+    //    public boolean onOptionsItemSelected(MenuItem item){
+//        switch (item.getItemId()) {
+//
+//        }
+//    }
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
