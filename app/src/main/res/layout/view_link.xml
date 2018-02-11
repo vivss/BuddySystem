@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="100dp"
+    android:padding="10dp"
+    android:background="@color/white"
+    
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:id="@+id/r_buddy"
-        android:hint="@string/buddy_b"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/r_buddy"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:hint="@string/buddy_b"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/r_distance"
+                android:hint="@string/distance"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="meters"/>
+        </LinearLayout>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:id="@+id/r_distance"
-        android:hint="@string/distance"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -9,19 +9,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
         android:orientation="vertical">
-
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_weight="3"
-            android:src="@mipmap/buddy_connected_text" />
+            android:layout_weight="6"
 
-        <LinearLayout
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="0px"
                 android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="2">
                 <TextView
                     android:id="@+id/textview_friends"
                     android:layout_width="match_parent"
@@ -44,12 +47,13 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                 </LinearLayout>
-        </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0px"
                 android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="2">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -71,13 +75,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="hours"/>
+                </LinearLayout>
             </LinearLayout>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0px"
                 android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="2">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,18 +106,18 @@
                         android:layout_weight="1"
                         android:text="meters"/>
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_create_link"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/gradient"
-                    android:text="@string/button_add" />
             </LinearLayout>
 
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_create_link"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+
+            android:background="@drawable/gradient"
+            android:text="@string/button_add" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

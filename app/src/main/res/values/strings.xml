@@ -5,7 +5,7 @@
     <string name="ok">Ok</string>
     <string name="permission_denied">Permission Denied</string>
     <string name="title_activity_signin">Sign in</string>
-    <string name="friends">FRIENDS</string>
+    <string name="friends">CHOOSE FRIENDS</string>
     <string name="button_add">Link Buddy</string>
 
     <!-- Strings related to login -->

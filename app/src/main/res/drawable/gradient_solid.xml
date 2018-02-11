@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor= "@color/colorPrimary"
+        android:endColor="@color/colorPrimaryDark"
+        android:angle="180"
+        />
+</shape>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<shape xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--&lt;!&ndash;  Gradient Bg for listrow &ndash;&gt;-->
+    <!--<gradient-->
+    <!--android:startColor= "@color/colorPrimary"-->
+    <!--android:endColor="@color/colorPrimaryDark"-->
+    <!--android:angle="90" />-->
+    <!--<corners android:radius="10dp"/>-->
+
+    <!--</shape>-->
