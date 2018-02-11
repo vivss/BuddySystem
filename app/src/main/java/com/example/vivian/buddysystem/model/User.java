@@ -9,11 +9,19 @@ import java.util.UUID;
 public class User {
     private static final String TAG = "USER";
 
+    public UUID getId() {
+        return id;
+    }
+
     private UUID id;
     private String username;
     private String name;
-    private String photo;
+    private String phone;
     private String password;
+
+    public User(UUID id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -31,12 +39,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhone(String photo) {
+        this.phone = photo;
     }
 
     public String getPassword() {
