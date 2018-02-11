@@ -23,4 +23,6 @@ We created Buddy System for friends going out to events. But we can see it being
 
 We're hoping to improve the user experience by reorganizing the flow and layouts. 
 
-![Screenshot!](https://github.com/vivss/BuddySystem/blob/master/Output/Screenshot_1518363420.png)
+https://devpost.com/software/buddy-system-bkxdrf
+
+![Screenshot!](https://github.com/vivss/BuddySystem/blob/master/Output/Screenshot_1518363420.png | width=100)
