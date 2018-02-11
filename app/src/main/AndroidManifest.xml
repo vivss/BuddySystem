@@ -26,10 +26,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Locator"></activity>
+        <activity android:name=".Locator" />
         <activity
             android:name=".SigninActivity"
-            android:label="@string/title_activity_signin"></activity>
+            android:label="@string/title_activity_signin" />
+        <activity android:name=".model.NotActiveDash"></activity>
     </application>
 
 </manifest>

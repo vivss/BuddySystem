@@ -107,12 +107,12 @@
             </LinearLayout>
             <Button
                 android:id="@+id/btn_create_link"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:text="Start"
+                android:layout_marginTop="20dp"
+                android:text="Add Buddy"
                 android:background="@drawable/gradient"
-                android:textColor="@color/white"
                 />
 
         </LinearLayout>
