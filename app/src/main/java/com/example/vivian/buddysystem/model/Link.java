@@ -81,7 +81,7 @@ public class Link {
         this.distance = distance;
     }
 
-    public int getSpace(){
+    public int getSpace(){ //for testing purposes
         Random r = new Random();
         return r.nextInt(100-0) + 0;
     }
